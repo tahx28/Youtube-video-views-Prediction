@@ -1,0 +1,5 @@
+instance:
+  _target_: models.multimodalV1Classifier.MultiModalV1Classifier
+  feature_dim: 42
+
+name: MULTIMODALV1CLASSIFIER

@@ -1,0 +1,5 @@
+instance:
+  _target_: models.multimodalV1Regressor.MultiModalV1Regressor
+  feature_dim: 42
+
+name: MULTIMODALV1REGRESSOR

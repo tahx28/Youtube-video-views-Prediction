@@ -1,0 +1,34 @@
+defaults:
+    - _self_
+    - dataset: default_multimodal_classifier
+    - optim: adamw
+    - model: MultimodalV1Classifier
+    - loss_fn: crossEntropy
+
+epochs: 2
+log: True
+prefix: ""
+experiment_name: ${prefix}${model.name}_${now:%Y-%m-%d_%H-%M-%S}_${epochs}
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+
+datamodule:
+  _target_: data.datamodule.DataModule
+  dataset_path: ${data_dir}
+  train_transform: ${dataset.train_transform}
+  test_transform: ${dataset.val_transform}
+  batch_size: ${dataset.batch_size}
+  num_workers: ${dataset.num_workers}
+  metadata: ${dataset.metadata}
+  classifier: ${dataset.classifier}
+
+
+data_dir: ${root_dir}/dataset/
+root_dir:  ${hydra:runtime.cwd}
+checkpoint_path: ${root_dir}/checkpoints/${experiment_name}.pt
+
+
+

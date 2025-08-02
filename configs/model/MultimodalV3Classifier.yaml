@@ -1,0 +1,5 @@
+instance:
+  _target_: models.multimodalV3Classifier.MultiModalV3Classifier
+  num_tab_features: 42
+
+name: MULTIMODALV3CLASSIFIER

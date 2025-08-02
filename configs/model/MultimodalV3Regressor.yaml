@@ -1,0 +1,5 @@
+instance:
+  _target_: models.multimodalV3Regressor.MultiModalV3Regressor
+  num_tab_features: 42
+
+name: MULTIMODALV3Regressor
